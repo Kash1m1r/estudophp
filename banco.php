@@ -26,13 +26,14 @@ $contasUsers = [
 
 $contasUsers['111.241.212-43'] = sacarDinheiro($contasUsers['111.241.212-43'], 1500);
 $contasUsers['344.124.121-24'] = adcionarDinheiro($contasUsers['344.124.121-24'], 600);
-
+unset($contasUsers['344.124.121-24']);
 
 nomeMaior($contasUsers['111.241.212-43']);
 
 
 foreach ($contasUsers as $i => $conta) {
+    ['nome' => $titular, 'saldo' => $saldo] = $conta;
     exibeMensagem(
-        "$i {$conta['nome']} {$conta['saldo']} ". PHP_EOL
+        "$i $titular $saldo". PHP_EOL
     );
 }
