@@ -34,6 +34,24 @@ $alunos = [
 
 ];
 
+$alunos2 = [
+    [
+        'nome' => 'Gabriel',
+        'idade' => '24',
+        'Nacionalidade' => 'Brasileiro'
+    ],
+    [
+        'nome' => 'Beatriz',
+        'idade' => '34',
+        'Nacionalidade' => 'Brasileiro'
+    ],
+    [
+        'nome' => 'Miguel',
+        'idade' => '21',
+        'Nacionalidade' => 'Brasileiro'
+    ],
+];
+
 function ordenarIdade (array $idade1, array $idade2):int{
     return $idade1['idade'] <=> $idade2['idade'];
 }
@@ -61,3 +79,6 @@ var_dump(isset($pessoas['Fer']));
 var_dump(in_array(11, $pessoas));
 
 echo array_search(33, $pessoas);
+
+$diferenca = array_diff_key($alunos, $alunos2);
+var_dump(array_keys($diferenca));
