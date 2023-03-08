@@ -28,4 +28,12 @@ echo 'Sobrenome:' . $sobrenome .PHP_EOL;
 $csv = 'Gabriel Pereira,24,gabrielgomes@ma.def.br';
 var_dump(explode(',',$csv));
 
-echo trim($email);
+echo trim($email) . PHP_EOL;
+
+$texto = "texto de teste";
+
+echo str_replace(
+    ['texto', 'teste'],
+    ['Olá', 'Mundo'],
+    $texto
+) .PHP_EOL;
