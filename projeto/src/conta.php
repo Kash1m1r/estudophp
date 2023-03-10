@@ -1,11 +1,16 @@
 <?php
 
 class Conta{
-    public $cpfTitular;
-    public $nomeTitular;
-    public $saldo;
+    private $cpfTitular;
+    private $nomeTitular;
+    private $saldo;
 
-    
+    public function __construct(string $cpfTitular, string $nomeTitular){
+        echo "Criando nova conta..." .PHP_EOL;
+        $this->cpfTitular = $cpfTitular;
+        $this->nomeTitular = $nomeTitular;
+        $this->saldo=0;
+    }
 
     public function sacar(float $valorSaque){
         if($valorSaque > $this->saldo){
@@ -33,4 +38,15 @@ class Conta{
         $contaDestino->depositar($valorTransferencia);
         
     }
+    public function defineSaldo(float $sald){
+        $this->saldo; 
+    }
+    public function recpSaldo():float{
+        return $this->saldo;
+    }
+
+    public function recpCpf():string{
+        return $this->cpfTitular;
+    }
+    
 }
