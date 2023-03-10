@@ -4,14 +4,28 @@ class Conta{
     private $cpfTitular;
     private $nomeTitular;
     private $saldo;
-
+    private static $numeroContas = 0;
     public function __construct(string $cpfTitular, string $nomeTitular){
         echo "Criando nova conta..." .PHP_EOL;
         $this->cpfTitular = $cpfTitular;
+        $this->validaNome($nomeTitular);
         $this->nomeTitular = $nomeTitular;
         $this->saldo=0;
+
+        self::$numeroContas ++;
     }
 
+    public function __destruct(){
+        self::$numeroContas--;
+    }
+
+    private function validaNome(string $nomeTitular){
+        if(strlen($nomeTitular) < 5){
+            echo "O nome precisa ter pelo menos 5 caracteres!";
+            return;
+        }
+        echo "O usuário $nomeTitular foi criado com sucesso!";
+    }
     public function sacar(float $valorSaque){
         if($valorSaque > $this->saldo){
             echo "Saldo indisponível para saque";
@@ -49,4 +63,7 @@ class Conta{
         return $this->cpfTitular;
     }
     
+    public static function numeroDeAcc():int{
+        return self::$numeroContas;
+    }
 }
